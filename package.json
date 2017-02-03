@@ -1,6 +1,6 @@
 {
   "name": "hexo-tag-post-link",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A hexo tag plugin for inserting post link in your post.",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,11 @@
     "blog",
     "tag",
     "post",
-    "post-link"
+    "link",
+    "postlink",
+    "post-link",
+    "permalink",
+    "固定链接"
   ],
   "author": "r12f",
   "license": "BSD-3-Clause",
