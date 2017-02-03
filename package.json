@@ -11,7 +11,11 @@
     "url": "https://github.com/r12f/hexo-tag-post-link.git"
   },
   "keywords": [
-    "hexo"
+    "hexo",
+    "blog",
+    "tag",
+    "post",
+    "post-link"
   ],
   "author": "r12f",
   "license": "BSD-3-Clause",
