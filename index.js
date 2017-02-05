@@ -12,6 +12,7 @@ var configKeys = {
 
 var postKeys = {
     'post_title' : (config) => config.title,
+    'post_slug' : (config) => config.slug,
     'post_created' : (config) => config.date,
     'post_created_date' : (config) => config.date.format(hexo.config.date_format),
     'post_created_time' : (config) => config.date.format(hexo.config.time_format),

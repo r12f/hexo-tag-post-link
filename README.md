@@ -40,6 +40,7 @@ $ npm install hexo-tag-post-link --save
 * site_author
 * site_url
 * post_title
+* post_slug
 * post_created
 * post_created_date
 * post_created_time
