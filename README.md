@@ -12,8 +12,9 @@ $ npm install hexo-tag-post-link --save
 
 ## Usage
 
-1. Create "post_link.ymal" in your "_source/_data" folder
-2. Add your own post link format in ymal
+1. Create "_data" folder under "source" folder, if you don't have it.
+2. Create "post_link.yml" in your "source/_data" folder
+3. Add your own post link format in ymal
    ```
    name: format
    ```
@@ -23,7 +24,7 @@ $ npm install hexo-tag-post-link --save
    header: <b>The link to this post: </b><a href="<%= post_permalink %>" target="_blank"><%= post_title %></a>
    ```
 
-3. Add post link tag to wherever you like in your post
+4. Add post link tag to wherever you like in your post
    ```
    {% post_link <name> %}
    ```

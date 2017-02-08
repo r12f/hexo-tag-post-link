@@ -1,6 +1,6 @@
 {
   "name": "hexo-tag-post-link",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A hexo tag plugin for inserting post link in your post.",
   "main": "index.js",
   "scripts": {
