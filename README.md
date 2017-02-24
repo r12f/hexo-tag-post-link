@@ -33,6 +33,21 @@ $ npm install hexo-tag-post-link --save
    {% post_link header %}
    ```
 
+### Adding post link to all posts
+hexo-tag-post-link supports adding post link to all posts by setting the ```_config.yml``` file:
+```
+post_link:
+  insert_before_post: <template_name>
+  insert_after_post: <template_name>
+```
+
+Let's say we have template ```header``` and ```footer``` defined in our postlink.yml data file. Then we could use the following configuration to add them to all posts.
+```
+post_link:
+  insert_before_post: header
+  insert_after_post: footer
+```
+
 ## Supported Variables:
 
 * site_title

@@ -23,6 +23,45 @@ var postKeys = {
     'post_permalink' : (config) => config.permalink
 };
 
+hexo.extend.filter.register('before_post_render', function(postInfo) {
+    var config = hexo.config.post_link;
+    if (!config) {
+        return;
+    }
+
+    var globalPostLinks = {};
+    if (config.insert_before_post) {
+        globalPostLinks.insertBeforePost = '{% post_link ' + config.insert_before_post + ' %}\n\n';
+    }
+
+    if (config.insert_after_post) {
+        globalPostLinks.insertAfterPost = '\n\n{% post_link ' + config.insert_after_post + ' %}';
+    }
+
+    var content = [ globalPostLinks.insertBeforePost, postInfo.content, globalPostLinks.insertAfterPost ].join('');
+    postInfo.content = content;
+});
+
+hexo.extend.tag.register('post_link', function (args, content) {
+    var templateName = args[0];
+    return generatePostLink(templateName, this);
+});
+
+function generatePostLink(templateName, postInfo) {
+    if (!templateName) {
+        return '';
+    }
+
+    var postLinkTemplates = hexo.locals.get('data').post_link;
+    if (!postLinkTemplates || !postLinkTemplates[templateName]) {
+        return '';
+    }
+
+    var template = postLinkTemplates[templateName];
+    var templateArgs = createTemplateArgs(postInfo);
+    return underscore.template(template)(templateArgs);
+}
+
 function createTemplateArgs(postInfo) {
     var templateArgs = {};
 
@@ -32,15 +71,3 @@ function createTemplateArgs(postInfo) {
     return templateArgs;
 }
 
-hexo.extend.tag.register('post_link', function (args, content) {
-    var templateName = args[0];
-
-    var postLinkTemplates = hexo.locals.get('data').post_link;
-    if (!postLinkTemplates || !postLinkTemplates[templateName]) {
-        return '';
-    }
-
-    var template = postLinkTemplates[templateName];
-    var templateArgs = createTemplateArgs(this);
-    return underscore.template(template)(templateArgs);
-})
