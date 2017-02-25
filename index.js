@@ -29,6 +29,12 @@ hexo.extend.filter.register('before_post_render', function(postInfo) {
         return;
     }
 
+    // Currently, we only enable the global post link for posts.
+    // If global post link on other layout is need, we need to add per layout global post link configuations.
+    if (postInfo.layout !== 'post') {
+        return;
+    }
+
     var globalPostLinks = {};
     if (config.insert_before_post) {
         globalPostLinks.insertBeforePost = '{% post_link ' + config.insert_before_post + ' %}\n\n';
