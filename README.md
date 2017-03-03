@@ -48,6 +48,34 @@ post_link:
   insert_after_post: footer
 ```
 
+### Adding post link to posts in certain category or with certain tag
+hexo-tag-post-link also supports per type configurations in ```_config.yml``` file. For example:
+```
+post_link:
+  per_type_configs:
+    - type: category
+      name: "category-name"
+      insert_before_post: "header-for-category"
+      insert_after_post: "footer-for-catefory"
+    - type: tag
+      name: "tag-name"
+      insert_before_post: "header-for-tag"
+      insert_after_post: "header-for-tag"
+```
+
+### Disable global post link for certain post
+Just add ```disable_global_post_link: true``` in the front matter.
+```
+---
+title: title
+categories:
+  - category-name
+tags:
+  - tag-name
+disable_global_post_link: true
+---
+```
+
 ## Supported Variables:
 
 * site_title
